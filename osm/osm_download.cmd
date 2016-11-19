@@ -1,0 +1,1 @@
+wget -O valgrande.osm "http://overpass-api.de/api/map?bbox=8.2707,45.9529,8.6680,46.1387"

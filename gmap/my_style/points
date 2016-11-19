@@ -1,0 +1,18 @@
+include 'inc/name';
+
+place=village & cityxx!=yes {set cityxx=yes} 	[0x0900 resolution 22 continue with_actions]
+place=hamlet & cityxx!=yes  {set cityxx=yes}	[0x0b00 resolution 24 continue with_actions]
+place=locality & cityxx!=yes  {set cityxx=yes}	[0x0b00 resolution 24 continue with_actions]
+
+amenity=shelter [0x2b06 resolution 24 default_name 'Shelter']
+amenity=drinking_water [0x5000 resolution 24 default_name 'Water']
+
+natural=peak {name '${name|def:}${ele|height:m=>ft|def:}' } [0x6616 resolution 24]
+
+tourism=alpine_hut [0x2b02 resolution 24]
+
+include 'inc/water_points';
+include 'inc/landuse_points';
+
+<finalize>
+name=* { name '${name}' }

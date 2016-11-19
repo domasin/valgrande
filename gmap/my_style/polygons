@@ -1,0 +1,10 @@
+#include 'inc/name';
+
+leisure=nature_reserve { delete name; } [0x16 resolution 19]
+
+#leisure=park [0x17 resolution 20]
+
+include 'inc/water_polygons';
+
+<finalize>
+name=* { name '${name}' }

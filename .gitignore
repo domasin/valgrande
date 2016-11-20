@@ -95,6 +95,8 @@ ENV/
 *.qpj
 *.shp
 *.shx
+*.sbn
+*.sbx
 *.osm
 
 # directories

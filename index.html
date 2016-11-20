@@ -1,23 +1,86 @@
-<html>
-<body>
+<!DOCTYPE html>
+<html lang="it">
+	<head>
+		<title>A map and personal gis of the Valgrande National Park</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="description" content="A map and personal gis of Valgrande National Park"/>
+		<meta name="author" content="Domenico Masini"/>
 
-<h1>A Map and a personal Gis for the National Park of Valgrande</h1>
+		<link href="styles/bootstrap-combined.min.css" rel="stylesheet"/>
 
-<h2>Full QGis Map</h2>
-
-<img src="img\full_qgis_map.png">
-
-<h2>QGis Map detail</h2>
-
-<img src="img\qgis_map_detail.png">
-
-<h2>Full Garmin Map</h2>
-
-<img src="img\full_garmin_map.png">
-
-<h2>Garmin Map detail</h2>
-
-<img src="img\garmin_map_detail.png">
-
-</body>
+		<link type="text/css" rel="stylesheet" href="styles/style.css" />
+	</head>
+	<body>
+		<div class="container">
+			<div class="masthead">
+				<ul class="nav nav-pills pull-right">
+					<li>
+						<a href="http://github.com/domasin/valgrande">github page</a>
+					</li>
+				</ul>
+				<h3 class="muted">
+					<a href="/valgrande/index.html">Una Mappa e un Gis personale del Parco Nazionale Valgrande</a>
+				</h3>
+			</div>
+			<hr />
+			<div class="row">
+				<div class="span9" id="main">
+					<h1/>
+					<p style="text-align:justify;line-height: 27px;">
+Questo progetto e' una raccolta di risorse gis e fonti di dati geospaziali per lo studio personale del territorio del Parco Nazionale della Valgrande principalmente dal punto di vista topografico (e a fini escursionistici) ma possibilmente anche per approfondirne la conoscenza degli aspetti ecologici e ambientali in senso ampio. La presente documentazione costituisce una serie di appunti sulle fonti dati utilizzate e sulle istruzioni per la loro organizzazione, interrogazione e visualizzazione attraverso programmi informatici opensource o comunque gratuiti (QGis, PostGis, Google Earth). Contiene inoltre le istruzioni per creare una topo map della valgrande da utilizzare su un dispositivo Garmin.
+					</p>
+					<h2><a name="FontiDati" class="anchor" href="#FontiDati">Fonti di dati</a></h2>
+					<p>
+Le principali fonti dati utilizzate sono:
+						<ul>
+							<li>OpenStreetMap (OSM)</li>
+							<li>Cartografia tecnica regionale (CTR)</li>
+							<li>Corine Land Cover</li>
+						</ul>
+					</p>
+					<h2><a name="Programmi" class="anchor" href="#Programmi">Programmi</a></h2>
+					<p>
+I sistemi informatici:
+						<ul>
+							<li>QGis</li>
+							<li>PostGIS</li>
+							<li>Google Earth</li>
+							<li>Splitter</li>
+							<li>Mkgmap</li>
+							<li>Base Camp</li>
+						</ul>
+					</p>
+					<h2><a name="Output" class="anchor" href="#Output">Output</a></h2>
+					<p>I contenuti attualmente comprendono:</p>
+					<h3>Un progetto QGis</h3>
+					<img src="img\full_qgis_map.png"/>
+					<h3>QGis Map detail</h3>
+					<img src="img\qgis_map_detail.png"/>
+					<h3>Full Garmin Map</h3>
+					<img src="img\full_garmin_map.png"/>
+					<h3>Garmin Map detail</h3>
+					<img src="img\garmin_map_detail.png"/>
+				</div>
+				<div class="span3">
+					<img src="img/valgrande.jpg" alt="Valgrande" style="width:150px;margin:10px" />  
+					<ul class="nav nav-list" id="menu" style="margin-top: 20px;">
+						<li class="nav-header">Valgrande</li>
+						<li>
+							<a href="index.html">Home page</a>
+						</li>
+						<li class="divider"/>
+						<li>
+							<a href="index.html#FontiDati">Fonti Dati</a>
+						</li>
+						<li>
+							<a href="index.html#Programmi">Programmi</a>
+						</li>
+						<li>
+							<a href="index.html#Output">Output</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</body>
 </html>

@@ -89,13 +89,13 @@ ENV/
 .ropeproject
 
 # extracted geo data
-# *.dbf
-# *.cpg
-# *.prj
-# *.qpj
-# *.shp
-# *.shx
-# *.osm
+*.dbf
+*.cpg
+*.prj
+*.qpj
+*.shp
+*.shx
+*.osm
 
 # directories
 /gh-pages

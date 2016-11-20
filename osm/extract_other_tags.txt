@@ -1,0 +1,4 @@
+regexp_substr("other_tags" , '"trail_visibility"=>"([a-zA-Z0-9_.\-]+)"')
+regexp_substr("other_tags" , '"drinking_water"=>"([a-zA-Z0-9_.\-]+)"')
+regexp_substr("other_tags" , '"natural"=>"([a-zA-Z0-9_.\-]+)"')
+regexp_substr("other_tags" , '"tourism"=>"([a-zA-Z0-9_.\-]+)"')

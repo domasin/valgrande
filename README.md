@@ -11,3 +11,5 @@ unzip files in
 * land cover
 * limits
 * osm
+
+the unzip.cmd will unzip all in windows if 7-Zip is in the expected path

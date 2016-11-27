@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="it">
+	<head>
+		<title>Valgrande Personal Gis :: Installare QGis Server su IIS</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="description" content="A map and personal gis of Valgrande National Park"/>
+		<meta name="author" content="Domenico Masini"/>
+
+		<link href="styles/bootstrap-combined.min.css" rel="stylesheet"/>
+
+		<link type="text/css" rel="stylesheet" href="styles/style.css" />
+	</head>
+	<body>
+		<div class="container">
+			<div class="masthead">
+
+				<ul class="nav nav-pills pull-right">
+					<li>
+						<a href="http://github.com/domasin/valgrande" style="margin-top:7px;">github page</a>
+					</li>
+					<li>
+						<a href="https://it.linkedin.com/in/domenico-masini-78a1aa75" target="_blank">
+							<img src="img/linkedin.png" alt="linkedin" style="width:25px;"/>
+						</a>
+					</li>
+					<li>
+						<a href="http://www.hikr.org/user/domasin/piz/" target="_blank">
+							<img src="img/hikr_logo3.png" alt="linkedin" style="width:50px;"/>
+						</a>
+					</li>
+				</ul>
+				<h3 class="muted">
+					<a href="/valgrande/index.html">Una Mappa e un Gis personale del Parco Nazionale Valgrande</a>
+				</h3>
+			</div>
+			<hr />
+			<div class="row">
+				<div class="span9" id="main">
+					<h1>Installare Qgis in modo da avere Qgis Server su Apache</h1>
+					<h2>Installare qgis via osgeo</h2>
+					<p>
+						<ul>
+							<li>
+						Scaricare osgeo a 32bit
+							</li>
+							<li>
+						Lanciare il setup e scegliere Express Web-Gis Install
+							</li>
+							<li>
+						Scegliere una porta diversa da 80 (esempio 90) se si ha già un web server su quella porta (ad esempio IIS)
+							</li>
+							<li>
+						Al termine lanciare di nuovo il setup e scegliere Advanced Install
+							</li>
+							<li>
+						Selezionare qgis e qgis-server
+							</li>
+							<li>
+						Da OSGeo4W64\bin copiare le dll libeay32.dll e ssleay32.dll in OSGeo4W64\apps\qgis\bin
+							</li>
+						</ul>
+					</p>
+					<h2>Verificare l'installazione</h2>
+					<p>
+						<ul>
+							<li>Navigare su http://localhost:90/qgis/qgis_mapserv.fcgi.exe?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities</li>
+						</li>
+					</li>
+					<h2>Servire il progetto valgrande</h2>
+					<p>
+						<ul>
+							<li>Copiare il file valgrande.qgs e tutte le cartelle che contengono geofile referenziati nel progetto nella cartella OSGeo4W64\apps\qgis\bin</li>
+						</li>
+					</li>
+				</ul>
+			</p>
+		</div>
+		<div class="span3">
+			<a href="http://www.parcovalgrande.it/index.php" target="_blank">
+				<img src="img/valgrande.jpg" alt="Valgrande" style="width:150px;margin:10px"/>
+			</a>
+			<ul class="nav nav-list" id="menu" style="margin-top: 20px;">
+				<li class="nav-header">Valgrande</li>
+				<li>
+					<a href="index.html">Home page</a>
+				</li>
+				<li class="divider"/>
+				<li>
+					<a href="index.html#FontiDati">Fonti Dati</a>
+				</li>
+				<li>
+					<a href="index.html#Programmi">Programmi</a>
+				</li>
+				<li>
+					<a href="index.html#Output">Output</a>
+				</li>
+				<li>
+					<a href="qgisserverapache.html">QGis Server su Apache</a>
+				</li>
+				<li>
+					<a href="qgisserveriis.html">QGis Server su IIS</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+</body>
+</html>

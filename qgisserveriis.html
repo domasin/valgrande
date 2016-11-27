@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="it">
+	<head>
+		<title>Valgrande Personal Gis :: Installare QGis Server su IIS</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="description" content="A map and personal gis of Valgrande National Park"/>
+		<meta name="author" content="Domenico Masini"/>
+
+		<link href="styles/bootstrap-combined.min.css" rel="stylesheet"/>
+
+		<link type="text/css" rel="stylesheet" href="styles/style.css" />
+	</head>
+	<body>
+		<div class="container">
+			<div class="masthead">
+
+				<ul class="nav nav-pills pull-right">
+					<li>
+						<a href="http://github.com/domasin/valgrande" style="margin-top:7px;">github page</a>
+					</li>
+					<li>
+						<a href="https://it.linkedin.com/in/domenico-masini-78a1aa75" target="_blank">
+							<img src="img/linkedin.png" alt="linkedin" style="width:25px;"/>
+						</a>
+					</li>
+					<li>
+						<a href="http://www.hikr.org/user/domasin/piz/" target="_blank">
+							<img src="img/hikr_logo3.png" alt="linkedin" style="width:50px;"/>
+						</a>
+					</li>
+				</ul>
+				<h3 class="muted">
+					<a href="/valgrande/index.html">Una Mappa e un Gis personale del Parco Nazionale Valgrande</a>
+				</h3>
+			</div>
+			<hr />
+			<div class="row">
+				<div class="span9" id="main">
+					<h1>Installare Qgis in modo da avere Qgis Server su IIS</h1>
+					<h2>Installare qgis via osgeo</h2>
+					<p>
+						<ul>
+							<li>
+						Scaricare osgeo a 32bit
+							</li>
+							<li>
+						Lanciare il setup e scegliere Express Web-Gis Install
+							</li>
+							<li>
+						Al termine lanciare di nuovo il setup e scegliere Advanced Install
+							</li>
+							<li>
+						Selezionare qgis e qgis-server
+							</li>
+							<li>
+						Da OSGeo4W64\bin copiare le dll libeay32.dll e ssleay32.dll in OSGeo4W64\apps\qgis\bin
+							</li>
+						</ul>
+					</p>
+					<h2>Installare e Configurare IIS</h2>
+					<p>
+						<ul>
+							<li>Cliccare su Start, Control Panel, Programs, Turn Windows features on or off (il mio sistema operativo è in inglese)</li>
+							<li>Selezionare Internet Information Services.</li>
+							<li>Selezionare Web Management Tools e poi IIS Management Console.</li>
+							<li>Selezionare World Wide Web Services</li>
+							<li>In Application development Features, selezionare ASP, CGI, ISAPI Extensions, ISAPI Filters and Server-Side Includes.</li>
+							<li>In Common HTTP Features, selezionare Default Document, HTTP Errors, HTTP Redirection and Static Content.</li>
+							<li>In Health and Diagnostics, selezionare HTTP Logging and Request Monitor.</li>
+							<li>In Performance Features, selezionare Static Content Compression.</li>
+							<li>In Security, selezionare Request Filtering.</li>
+							<li>Per assicurarsi dell'installazione, navigare su http://localhost – Si dovrebbe vedere la welcome page di IIS.</li>
+							<li>Eseguire inetmgr.</li>
+							<li>Selezionare Default Web Site.</li>
+							<li>Fare doppio click su ASP al centro del pannello di IIS Manager ed assicurarsi delle seguenti impostazioni:</li>
+							<li>Enable Parent Paths = True</li>
+							<li>Cliccare su Application Pools nel pannello sinistro di IIS Manager, cliccare DefaultAppPool al centro del pannello e posi cliccare suadvanced settings nel pannello a destra. Assicurarsi che Enable 32-Bit Applications sia impostato a True.</li>
+							<li>Creare la seguente application o virual directory in IIS:</li>
+							<li>qgis con percorso fisico su OSGeo4W64\apps\qgis\bin</li>
+							<li>Cliccare su Default Web Site e poi fare doppio click su Handler Mappings al centro del pannello.</li>
+							<li>Nelle Actions Pane, cliccare su Add Module Mapping e poi impostare i seguenti:</li>
+							<li>Request path: *.exe</li>
+							<li>Module: FastCgiModule</li>
+							<li>Executable: OSGeo4W64\apps\qgis\bin\qgis_mapserv.fcgi.exe</li>
+							<li>Name: QgisServer via FastCGI</li>
+							<li>Cliccare su Request Restrictions e impostare i seguenti:</li>
+							<li>Mapping Tab: Spuntare “Invoke handler … “, poi impostare “File”.</li>
+							<li>Verbs Tab: “One of the following …”, inserire “GET,HEAD,POST”.</li>
+							<li>Access Tab: Spuntare “Execute”.</li>
+						</ul>
+					</p>
+					<h2>Verificare l'installazione</h2>
+					<p>
+						<ul>
+							<li>Navigare su http://localhost/qgis/qgis_mapserv.fcgi.exe?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities</li>
+							<li>Se ci sono problemi arrestare il web server Apache installato da osgeo con OSGeo4W > Apache > OSGEO4W-Apache-Stop</li>
+						</li>
+					</li>
+				</ul>
+			</p>
+		</div>
+		<div class="span3">
+			<a href="http://www.parcovalgrande.it/index.php" target="_blank">
+				<img src="img/valgrande.jpg" alt="Valgrande" style="width:150px;margin:10px"/>
+			</a>
+			<ul class="nav nav-list" id="menu" style="margin-top: 20px;">
+				<li class="nav-header">Valgrande</li>
+				<li>
+					<a href="index.html">Home page</a>
+				</li>
+				<li class="divider"/>
+				<li>
+					<a href="index.html#FontiDati">Fonti Dati</a>
+				</li>
+				<li>
+					<a href="index.html#Programmi">Programmi</a>
+				</li>
+				<li>
+					<a href="index.html#Output">Output</a>
+				</li>
+				<li>
+					<a href="qgisserveriis.html">QGis Server</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+</body>
+</html>

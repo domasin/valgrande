@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mappa semplice</title>
+    <link rel="stylesheet" href="ol.css" type="text/css">
+    <script src="ol.js"></script>
+	<style>
+      a.skiplink {
+        position: absolute;
+        clip: rect(1px, 1px, 1px, 1px);
+        padding: 0;
+        border: 0;
+        height: 1px;
+        width: 1px;
+        overflow: hidden;
+      }
+      a.skiplink:focus {
+        clip: auto;
+        height: auto;
+        width: auto;
+        background-color: #fff;
+        padding: 0.3em;
+      }
+      #map:focus {
+        outline: #4A74A8 solid 0.15em;
+      }
+    </style>
+  </head>
+  <body>
+  <a class="skiplink" href="#map">Go to map</a>
+	<button id="ways">Ways</button>
+    <button id="nodes">Nodes</button>
+    <div id="map" class="map" tabindex="0"></div>
+    <script>
+	  var source = new ol.source.TileWMS({
+            url: 'http://localhost:90/qgis/qgis_mapserv.fcgi.exe?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities',
+            params: {'LAYERS': 'lines,points,contour_lines,hills_shades,park,pedum_integral_reserve', 'TILED': true}
+        });
+		
+	  var cimaPedum = ol.proj.fromLonLat([8.4482, 46.0445]);
+	
+      var map = new ol.Map({
+        layers: [
+          new ol.layer.Tile({
+            source: source
+          })
+        ],
+        target: 'map',
+        controls: ol.control.defaults({
+          attributionOptions: /** @type {olx.control.AttributionOptions} */ ({
+            collapsible: false
+          })
+        }),
+        view: new ol.View({
+          center: cimaPedum,
+          //zoom: 2,
+		  porjection: 'EPSG:32632',
+		  resolution: 50,
+        })
+      });
+
+	  document.getElementById('ways').onclick = function() {
+		var layers = map.getLayers();
+		layers[0].visible = !layers[0].visible;
+      };
+	  
+	  document.getElementById('nodes').onclick = function() {
+		var layers = map.getLayers();
+		layers[0].visible = !layers[1].visible;
+      };
+    </script>
+  </body>
+</html>

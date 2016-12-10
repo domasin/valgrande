@@ -115,12 +115,12 @@ $(function () {
         },
         "plugins": ["checkbox", "changed"]
     });
-    $('#jstree').jstree(true).select_node('vco');
-    $('#jstree').jstree(true).select_node('park');
-    $('#jstree').jstree(true).select_node('reserve');
-    $('#jstree').jstree(true).select_node('ways');
-    $('#jstree').jstree(true).select_node('places');
-    $('#jstree').jstree(true).select_node('shades');
+    //$('#jstree').jstree(true).select_node('vco');
+    //$('#jstree').jstree(true).select_node('park');
+    //$('#jstree').jstree(true).select_node('reserve');
+    //$('#jstree').jstree(true).select_node('ways');
+    //$('#jstree').jstree(true).select_node('places');
+    //$('#jstree').jstree(true).select_node('shades');
 
     // Geolocation marker
     var markerEl = document.getElementById('geolocation_marker');
